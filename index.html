@@ -3,67 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Software Engineer | Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;700&display=swap" rel="stylesheet">
+    <title>Software Engineer Portfolio</title>
     <style>
-        :root {
-            --primary-color: #00d4ff;
-            --bg-dark: #0a0a0c;
-            --card-bg: #16161a;
-            --text-main: #e0e0e0;
-            --transition: all 0.3s ease;
+        /* 기본 스타일 초기화 */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Pretendard', sans-serif; }
+        body { background-color: #0f172a; color: #f8fafc; line-height: 1.6; overflow-x: hidden; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* 네비게이션 */
+        nav { position: fixed; width: 100%; top: 0; display: flex; justify-content: space-between; padding: 20px 50px; background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(10px); z-index: 1000; }
+        .logo { font-size: 1.5rem; font-weight: bold; color: #38bdf8; }
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a:hover { color: #38bdf8; transition: 0.3s; }
+
+        /* 섹션 공통 스타일 */
+        section { padding: 100px 10% 60px; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
+        h2 { font-size: 2.5rem; margin-bottom: 40px; border-left: 5px solid #38bdf8; padding-left: 15px; }
+
+        /* 히어로 섹션 (Intro) */
+        .hero { text-align: center; align-items: center; }
+        .hero h1 { font-size: 4rem; margin-bottom: 10px; }
+        .hero p { font-size: 1.2rem; color: #94a3b8; margin-bottom: 30px; }
+        .btn { padding: 12px 30px; background: #38bdf8; color: #0f172a; border-radius: 5px; font-weight: bold; transition: 0.3s; }
+        .btn:hover { background: #0ea5e9; transform: translateY(-3px); }
+
+        /* 프로젝트 카드 (Grid) */
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .card { background: #1e293b; padding: 25px; border-radius: 15px; border: 1px solid #334155; transition: 0.3s; position: relative; overflow: hidden; }
+        .card:hover { transform: translateY(-10px); border-color: #38bdf8; }
+        .card h3 { color: #38bdf8; margin-bottom: 10px; }
+        .tags { display: flex; gap: 8px; margin-top: 15px; flex-wrap: wrap; }
+        .tag { font-size: 0.8rem; background: #334155; padding: 4px 10px; border-radius: 20px; }
+
+        /* 기술 스택 */
+        .skills-container { display: flex; flex-wrap: wrap; gap: 15px; }
+        .skill-item { background: #1e293b; padding: 10px 20px; border-radius: 8px; border-bottom: 3px solid #38bdf8; }
+
+        /* 반응형 설정 */
+        @media (max-width: 768px) {
+            nav { padding: 20px; }
+            .nav-links { display: none; } /* 모바일에서는 메뉴 숨김 (확장 가능) */
+            .hero h1 { font-size: 2.5rem; }
+            section { padding: 80px 5%; }
         }
+    </style>
+</head>
+<body>
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            font-family: 'Pretendard', sans-serif;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+    <nav>
+        <div class="logo">Dev_Portfolio</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0; width: 100%;
-            padding: 20px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(10, 10, 12, 0.8);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-        }
-        nav .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary-color); }
-        nav ul { display: flex; list-style: none; }
-        nav ul li { margin-left: 30px; cursor: pointer; }
-        nav ul li:hover { color: var(--primary-color); }
+    <section id="home" class="hero">
+        <h1>안녕하세요, [이름]입니다.</h1>
+        <p>컴퓨터공학 & 소프트웨어 응용 전공 | 풀스택 개발자 지망생</p>
+        <a href="#projects" class="btn">내 작업물 보기</a>
+    </section>
 
-        /* Hero Section */
-        header {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: radial-gradient(circle at center, #1a1a2e 0%, #0a0a0c 100%);
-        }
-        header h1 { font-size: 4rem; margin-bottom: 10px; opacity: 0; transform: translateY(20px); transition: 1s forwards; }
-        header p { font-size: 1.2rem; color: #888; opacity: 0; transition: 1.5s forwards; }
-        .visible { opacity: 1 !important; transform: translateY(0) !important; }
+    <section id="about">
+        <h2>About Me</h2>
+        <p style="max-width: 800px; font-size: 1.1rem; color: #cbd5e1;">
+            컴퓨터 공학적 사고를 바탕으로 효율적인 소프트웨어 솔루션을 설계합니다. 
+            소프트웨어 응용학과에서 실질적인 서비스 구현 능력을 쌓았으며, 사용자 경험을 고려한 반응형 웹 구현에 관심이 많습니다.
+        </p>
+        <div class="skills-container" style="margin-top: 30px;">
+            <div class="skill-item">Java</div>
+            <div class="skill-item">Python</div>
+            <div class="skill-item">JavaScript (ES6+)</div>
+            <div class="skill-item">React / Vue</div>
+            <div class="skill-item">MySQL</div>
+            <div class="skill-item">Spring Boot</div>
+        </div>
+    </section>
 
-        /* Section Common */
-        section { padding: 100px 10%; }
-        h2 { font-size: 2.5rem; margin-bottom: 50px; border-left: 5px solid var(--primary-color); padding-left: 15px; }
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="project-grid">
+            <div class="card">
+                <h3>멋진 웹 서비스 A</h3>
+                <p>소프트웨어 응용 캡스톤 디자인 프로젝트로 진행한 실시간 데이터 분석 툴입니다.</p>
+                <div class="tags">
+                    <span class="tag">React</span>
+                    <span class="tag">Node.js</span>
+                    <span class="tag">Socket.io</span>
+                </div>
+            </div>
+            <div class="card">
+                <h3>알고리즘 시각화 엔진</h3>
+                <p>복잡한 자료구조 알고리즘을 브라우저에서 시각화하여 학습을 돕는 도구입니다.</p>
+                <div class="tags">
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">Canvas API</span>
+                </div>
+            </div>
+            <div class="card">
+                <h3>전공 커뮤니티 앱</h3>
+                <p>컴퓨터공학도들을 위한 정보 공유 및 매칭 시스템의 백엔드 설계를 담당했습니다.</p>
+                <div class="tags">
+                    <span class="tag">Spring Boot</span>
+                    <span class="tag">JPA</span>
+                    <span class="tag">AWS</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        /* Grid Layout */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-        }
+    <section id="contact" style="text-align: center;">
+        <h2>Contact</h2>
+        <p>함께 성장할 기회를 찾고 계신다면 언제든 연락주세요!</p>
+        <p style="margin-top: 20px; font-size: 1.2rem; color: #38bdf8;">email@example.com</p>
+        <div style="margin-top: 40px;">
+            <a href="#" class="btn" style="background: #334155; color: white; margin: 5px;">GitHub</a>
+            <a href="#" class="btn" style="background: #334155; color: white; margin: 5px;">LinkedIn</a>
+        </div>
+    </section>
 
-        /* Project Card */
-        .
+    <footer style="text-align: center; padding: 40px; color: #64748b; font-size: 0.9rem;">
+        &copy; 2024 [이름]. All rights reserved.
+    </footer>
+
+    <script>
+        // 부드러운 스크롤 효과
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
