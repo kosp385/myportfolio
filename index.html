@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Engineer | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #00d4ff;
+            --bg-dark: #0a0a0c;
+            --card-bg: #16161a;
+            --text-main: #e0e0e0;
+            --transition: all 0.3s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Pretendard', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 12, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+        nav .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary-color); }
+        nav ul { display: flex; list-style: none; }
+        nav ul li { margin-left: 30px; cursor: pointer; }
+        nav ul li:hover { color: var(--primary-color); }
+
+        /* Hero Section */
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(circle at center, #1a1a2e 0%, #0a0a0c 100%);
+        }
+        header h1 { font-size: 4rem; margin-bottom: 10px; opacity: 0; transform: translateY(20px); transition: 1s forwards; }
+        header p { font-size: 1.2rem; color: #888; opacity: 0; transition: 1.5s forwards; }
+        .visible { opacity: 1 !important; transform: translateY(0) !important; }
+
+        /* Section Common */
+        section { padding: 100px 10%; }
+        h2 { font-size: 2.5rem; margin-bottom: 50px; border-left: 5px solid var(--primary-color); padding-left: 15px; }
+
+        /* Grid Layout */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        /* Project Card */
+        .
